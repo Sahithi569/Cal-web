@@ -3,26 +3,26 @@ agent any
 stages {
 stage ('Git-Checkout') {
 steps{
-git url: '
+git url: 'https://github.com/Sahithi569/Cal-web.git'
 echo "Checkout successful";
 }
 }
 stage ('Compile') {
 steps{
-bat label: '', script:'mvnw compile'
-echo "test successful";
+bat label: '', script:'mvn compile'
+echo "compile successful";
 }
 }
 stage ('Build') {
 steps{
-bat label: '', script: 'mvnw clean'
-bat label: '', script: 'mvnw package'
+bat label: '', script: 'mvn clean'
+bat label: '', script: 'mvn package'
 echo "build successful";
 }
 }
 stage ('Test'){
 steps{
-bat label: '', script:'mvnw test'
+bat label: '', script:'mvn test'
 echo "test successful";
 }
 }
