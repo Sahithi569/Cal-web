@@ -26,14 +26,13 @@ bat label: '', script:'mvn test'
 echo "test successful";
 }
 }
-stage ('deploy') {
+stage ('Deploy') {
 steps{
-sshagent(['deploy_user']) {
-    // some block
+deploy adapters: [tomcat8(credentialsId: 'admin', path: '', url: 'http://localhost:8040/manager/html')], contextPath: 'Test.war', war: 'target\\Test.war'
 }
 
 }
 }
 }
-}
+
 
